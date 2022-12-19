@@ -18,10 +18,7 @@ impl Segmenter for ChineseSegmenter {
        let l2 = segmented.len();
        let l = l1 + l2 + 1;
        let arr = [str, l];
-        for index in 0..l1{
-            arr[index] = segmented1[index];
-        }
-        for index in l1..l-1{
+        for index in 0..l2{
             arr[index] = segmented[index];
         }
         arr[l - 1] = to_segment; // 将其本身不经分割也加入索引

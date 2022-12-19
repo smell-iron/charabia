@@ -17,7 +17,7 @@ impl Segmenter for ChineseSegmenter {
        let segmented = JIEBA.cut(to_segment, false); // disable Hidden Markov Models. 按分词切割
        let l2 = segmented.len();
        let l = l1 + l2 + 1;
-       let arr = [str, l];
+       let arr = ["str"; l];
         for index in 0..l2{
             arr[index] = segmented[index];
         }

@@ -13,12 +13,12 @@ impl Segmenter for ChineseSegmenter {
     fn segment_str<'o>(&self, to_segment: &'o str) -> Box<dyn Iterator<Item = &'o str> + 'o> {
   // let segmented1 = to_segment.split("");  // 按字切割加入索引
 //        let l1 = segmented1.len();
-        let l1 = 0
+//         let l1 = 0
        let segmented = JIEBA.cut(to_segment, false); // disable Hidden Markov Models. 按分词切割
-       const l2 = segmented.len();
-       const l = l1 + l2 + 1;
+       const l2: i32 = segmented.len();
+       const l: i32 = l2 + 1;
        let arr = ["str"; l];
-        for index in 0..l2{
+        for index in 0..l{
             arr[index] = segmented[index];
         }
         arr[l2] = to_segment; // 将其本身不经分割也加入索引

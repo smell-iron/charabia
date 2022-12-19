@@ -15,13 +15,11 @@ impl Segmenter for ChineseSegmenter {
 //        let l1 = segmented1.len();
 //         let l1 = 0
        let segmented = JIEBA.cut(to_segment, false); // disable Hidden Markov Models. 按分词切割
-       const l2: i32 = segmented.len();
-       const l: i32 = l2 + 1;
-       let arr = ["str"; l];
-        for index in 0..l{
+       let arr = ["str"; segmented.len() + 1];
+        for index in (0..segmented.len()){
             arr[index] = segmented[index];
         }
-        arr[l2] = to_segment; // 将其本身不经分割也加入索引
+        arr[segmented.len()] = to_segment; // 将其本身不经分割也加入索引
         Box::new(arr.into_iter())
     }
 }

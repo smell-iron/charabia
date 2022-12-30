@@ -14,7 +14,7 @@ impl Segmenter for ChineseSegmenter {
   // let segmented1 = to_segment.split("");  // 按字切割加入索引
 //        let l1 = segmented1.len();
 //         let l1 = 0
-       let mut segmented = JIEBA.cut_for_search(to_segment, false); // disable Hidden Markov Models. 按分词切割
+       let segmented = JIEBA.cut_for_search(to_segment, false); // disable Hidden Markov Models. 按分词切割
        
 //        let l2 = segmented.len();
 //        let l = l1 + l2 + 1;
